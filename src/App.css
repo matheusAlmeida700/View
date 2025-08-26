@@ -1,0 +1,37 @@
+:root {
+  --primary: #ff3d3d;
+  --dark-gray: #4b4a49;
+}
+
+/* Fonts ---------------------------------------------------- */
+.poppins {
+  font-family: "Poppins";
+}
+
+/* Colors --------------------------------------------------- */
+.text-gray {
+  color: var(--dark-gray);
+}
+
+.text-primary {
+  color: var(--primary);
+}
+
+.bg-primary {
+  background-color: var(--primary);
+}
+
+.border-primary {
+  border-color: var(--primary);
+}
+
+/* Gradients ------------------------------------------------- */
+.home-gradient {
+  background: linear-gradient(
+    60deg,
+    rgba(255, 99, 132, 0.4),
+    rgba(255, 183, 102, 0.11),
+    rgba(171, 139, 255, 0.21),
+    rgba(140, 255, 220, 0.23)
+  );
+}
