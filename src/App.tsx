@@ -1,11 +1,13 @@
 import './App.css'
-import Home from './pages/home';
+import RisingBubbles from './components/RisingBubble';
+import Home from './pages/Home';
 
 function App() {
 
   return (
     <div>
       <Home />
+      <RisingBubbles />
     </div>
   )
 }

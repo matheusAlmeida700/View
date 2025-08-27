@@ -2,9 +2,13 @@ import viewLogo from "../assets/imgs/company/View-logo.png";
 import leftBall from "../assets/imgs/balls-left.png";
 import rightBall from "../assets/imgs/balls-right.png";
 
+import plantP from "../assets/imgs/plants/loja_p.png";
+import plantM from "../assets/imgs/plants/loja_m.png";
+import plantG from "../assets/imgs/plants/loja_g.png";
+
 function Home() {
   return (
-    <div className="home-gradient relative h-screen w-full">
+    <div className="home-gradient overflow-hidden relative flex h-screen w-full flex-col">
       <header className="poppins relative flex h-43 items-center justify-between pr-37 pl-27">
         <img src={viewLogo} className="h-21" alt="Logo View" />
         <div className="text-gray absolute left-1/2 flex -translate-x-1/2 gap-16 text-[22px]">
@@ -20,7 +24,7 @@ function Home() {
         </div>
       </header>
 
-      <main className="poppins text-gray flex w-full flex-col items-center">
+      <main className="poppins text-gray flex w-full flex-1 flex-col items-center overflow-hidden">
         <h1 className="mt-12 text-center text-[57px] leading-15">
           Potencialize a Experiência <br /> do Planejamento
         </h1>
@@ -28,14 +32,36 @@ function Home() {
           <button className="bg-primary rounded-3xl px-12 py-4.5 text-xl text-white">
             COMEÇAR
           </button>
-          <button className="border-primary text-primary rounded-3xl border-4 px-5 text-xl font-bold">
+          <button className="text-primary rounded-3xl border-4 px-5 text-xl font-bold">
             TOUR PELO SITE
           </button>
         </div>
+
+        <img
+          src={plantP}
+          className="border-primary mt-25 w-4xl rounded-[50px] border-5"
+          alt=""
+        />
+
+        <img
+          src={plantM}
+          className="border-primary absolute bottom-[-160px] mt-25 w-4xl translate-x-[7px] rotate-[-5deg] rounded-[50px] border-5"
+          alt=""
+        />
+
+        <img
+          src={plantG}
+          className="border-primary absolute bottom-[-220px] mt-25 w-4xl translate-x-[20px] rotate-[-12deg] rounded-[50px] border-5"
+          alt=""
+        />
       </main>
 
-      <img src={leftBall} className="absolute bottom-5 left-10" alt="" />
-      <img src={rightBall} className="absolute bottom-5 right-10" alt="" />
+      <img src={leftBall} className="absolute bottom-5 left-10 h-full" alt="" />
+      <img
+        src={rightBall}
+        className="absolute right-10 bottom-5 h-full"
+        alt=""
+      />
     </div>
   );
 }

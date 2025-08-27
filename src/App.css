@@ -3,6 +3,17 @@
   --dark-gray: #4b4a49;
 }
 
+/* Gradients ------------------------------------------------- */
+.home-gradient {
+  background: linear-gradient(
+    60deg,
+    rgba(255, 99, 132, 0.4),
+    rgba(255, 183, 102, 0.11),
+    rgba(172, 139, 255, 0.286),
+    rgba(140, 255, 220, 0.23)
+  );
+}
+
 /* Fonts ---------------------------------------------------- */
 .poppins {
   font-family: "Poppins";
@@ -25,13 +36,3 @@
   border-color: var(--primary);
 }
 
-/* Gradients ------------------------------------------------- */
-.home-gradient {
-  background: linear-gradient(
-    60deg,
-    rgba(255, 99, 132, 0.4),
-    rgba(255, 183, 102, 0.11),
-    rgba(171, 139, 255, 0.21),
-    rgba(140, 255, 220, 0.23)
-  );
-}
