@@ -1,44 +1,204 @@
 :root {
-  --primary: #ff3d3d;
-  --dark-gray: #4b4a49;
+  /* Brand colors */
+  --color-primary: #ff3d3d;
+  --color-brand: #d72e35;
+  --color-dark: #30302f;
+  --color-dark-gray: #4b4a49;
+
+  /* Text colors */
+  --color-text-muted: hsl(var(--text-secondary, 0 0% 60%));
+
+  /* Gradients */
+  --gradient-home: linear-gradient(60deg,
+      rgba(255, 99, 132, 0.4),
+      rgba(255, 183, 102, 0.11),
+      rgba(172, 139, 255, 0.286),
+      rgba(140, 255, 220, 0.23));
+
+  --gradient-section: linear-gradient(45deg,
+      rgba(255, 99, 132, 0.5),
+      rgba(255, 183, 102, 0.05),
+      rgba(171, 139, 255, 0.15),
+      rgba(140, 255, 220, 0.15));
+
+  --gradient-section-alt: linear-gradient(135deg,
+      rgba(255, 99, 132, 0.5),
+      rgba(255, 183, 102, 0.05),
+      rgba(171, 139, 255, 0.15),
+      rgba(140, 255, 220, 0.15));
+
+  /* Effects */
+  --blur-glass: blur(20px) saturate(140%);
+  --blur-glass-webkit: blur(20px) saturate(180%);
 }
 
-/* Gradients ------------------------------------------------- */
-.home-gradient {
-  background: linear-gradient(
-    60deg,
-    rgba(255, 99, 132, 0.4),
-    rgba(255, 183, 102, 0.11),
-    rgba(172, 139, 255, 0.286),
-    rgba(140, 255, 220, 0.23)
-  );
-}
-
-/* Fonts ---------------------------------------------------- */
+/* ========== Base ========== */
 .poppins {
-  font-family: "Poppins";
+  font-family: "Poppins", sans-serif;
 }
 
-/* Colors --------------------------------------------------- */
+/* Text utilities */
 .text-gray {
-  color: var(--dark-gray);
+  color: var(--color-dark-gray);
 }
 
 .text-primary {
-  color: var(--primary);
+  color: var(--color-primary);
 }
 
+.text-brand {
+  color: var(--color-brand);
+}
+
+.text-dark {
+  color: var(--color-dark);
+}
+
+.text-muted {
+  color: var(--color-text-muted);
+}
+
+/* Background utilities */
 .bg-primary {
-  background-color: var(--primary);
+  background-color: var(--color-primary);
 }
 
+.bg-brand {
+  background-color: var(--color-brand);
+}
+
+/* Border utilities */
 .border-primary {
-  border-color: var(--primary);
+  border-color: var(--color-primary);
+}
+
+/* ========== Layout & Sections ========== */
+
+.header {
+  position: fixed;
+  inset-inline: 0;
+  top: 0;
+  z-index: 50;
+  background: transparent;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+  box-shadow: none;
+  transition:
+    background 700ms cubic-bezier(.2, .9, .25, 1),
+    box-shadow 700ms cubic-bezier(.2, .9, .25, 1),
+    backdrop-filter 700ms cubic-bezier(.2, .9, .25, 1),
+    border-color 700ms cubic-bezier(.2, .9, .25, 1);
+}
+
+.header .inner {
+  border-radius: 9999px;
+  padding: 0.5rem 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header.scrolled {
+  background:
+    linear-gradient(90deg,
+      rgba(255, 99, 132, 0.10),
+      rgba(255, 183, 102, 0.08),
+      rgba(140, 255, 220, 0.06)),
+    rgba(255, 255, 255, 0.04);
+
+  -webkit-backdrop-filter: blur(12px) saturate(140%);
+  backdrop-filter: blur(12px) saturate(140%);
+  box-shadow: 0 12px 40px rgba(10, 12, 20, 0.12);
+}
+
+@media (min-width: 1024px) {
+  .header.scrolled {
+    -webkit-backdrop-filter: blur(14px) saturate(150%);
+    backdrop-filter: blur(14px) saturate(150%);
+    background:
+      linear-gradient(90deg,
+        rgba(255, 99, 132, 0.12),
+        rgba(255, 183, 102, 0.10),
+        rgba(140, 255, 220, 0.08)),
+      rgba(255, 255, 255, 0.05);
+  }
+
+  .header .inner {
+    padding: 0.6rem 1rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .header,
+  .header.scrolled,
+  .header .inner {
+    transition: none !important;
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
+  }
+}
+
+@media (max-width: 420px) {
+  .header {
+    top: 0.625rem;
+  }
+
+  .header .inner {
+    padding-inline: 0.5rem;
+  }
 }
 
 
-/* Responsividade -------------------------------------------- */
+.home-gradient {
+  background: var(--gradient-home);
+}
 
+.section {
+  position: relative;
+  width: 100%;
+  height: 100dvh;
+  overflow: hidden;
+}
+
+.section::before,
+.section::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transition: opacity 2s ease;
+}
+
+.section::before {
+  background: var(--gradient-section);
+  opacity: 1;
+}
+
+.section::after {
+  background: var(--gradient-section-alt);
+  opacity: 0;
+}
+
+.section.reverse::before {
+  opacity: 0;
+}
+
+.section.reverse::after {
+  opacity: 1;
+}
+
+/* ========== Effects ========== */
+.liquid-glass {
+  background: rgba(255, 255, 255, 0.01);
+  backdrop-filter: var(--blur-glass);
+  -webkit-backdrop-filter: var(--blur-glass-webkit);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 90px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  color: #fff;
+}
+
+/* ========== Responsivity ========== */
 @media (max-height: 768px) {
   .home-gradient header {
     height: 100px;

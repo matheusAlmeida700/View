@@ -1,6 +1,6 @@
-import viewLogo from "../assets/imgs/company/View-logo.png";
-import leftBall from "../assets/imgs/balls-left.png";
-import rightBall from "../assets/imgs/balls-right.png";
+import viewLogo from "../assets/imgs/company/view-logo.png";
+import decorativeBgL from "../assets/home/decorative-balls-l.png";
+import decorativeBgR from "../assets/home/decorative-balls-r.png";
 
 import plantP from "../assets/imgs/plants/loja_p.png";
 import plantM from "../assets/imgs/plants/loja_m.png";
@@ -8,8 +8,8 @@ import plantG from "../assets/imgs/plants/loja_g.png";
 
 function Home() {
   return (
-    <div className="home-gradient relative flex h-screen w-full flex-col overflow-hidden">
-      <header className="poppins relative flex h-43 items-center justify-between pr-37 pl-27">
+    <div className="home-gradient poppins relative flex h-screen w-full flex-col overflow-hidden">
+      <header className="relative flex h-43 items-center justify-between pr-37 pl-27">
         <img src={viewLogo} className="h-21" alt="Logo View" />
         <div className="text-gray absolute left-1/2 flex -translate-x-1/2 gap-16 text-[22px]">
           <p className="cursor-pointer">Início</p>
@@ -24,7 +24,7 @@ function Home() {
         </div>
       </header>
 
-      <main className="poppins text-gray flex w-full flex-1 flex-col items-center overflow-hidden">
+      <main className="text-dark flex w-full flex-1 flex-col items-center overflow-hidden font-semibold">
         <h1 className="mt-12 text-center text-[57px] leading-15">
           Potencialize a Experiência <br /> do Planejamento
         </h1>
@@ -88,9 +88,13 @@ function Home() {
         /> */}
       </main>
 
-      <img src={leftBall} className="absolute bottom-5 left-10 h-full" alt="" />
       <img
-        src={rightBall}
+        src={decorativeBgL}
+        className="absolute bottom-5 left-10 h-full"
+        alt=""
+      />
+      <img
+        src={decorativeBgR}
         className="absolute right-10 bottom-5 h-full"
         alt=""
       />
