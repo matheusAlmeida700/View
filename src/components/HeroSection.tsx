@@ -37,13 +37,17 @@ const HeroSection = () => {
           </div>
 
           <div className="flex items-center gap-4">
-            <Button variant="brand" size="xl" onClick={() => navigate("/home")}>
+            <Button
+              variant="brand"
+              size="xl"
+              onClick={() => navigate("/login")}
+            >
               Começar Agora
             </Button>
             <Button
               variant="outline-brand"
               size="xl"
-              onClick={() => navigate("/home")}
+              onClick={() => navigate("/login")}
             >
               Saiba mais
             </Button>

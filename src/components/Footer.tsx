@@ -6,7 +6,7 @@ import {
   MapPin,
   Phone,
 } from "lucide-react";
-import viewLogo from "@/assets/home/view-logo.png";
+import viewLogo from "@/assets/imgs/company/view-expanded-logo.png";
 import febrafarLogo from "@/assets/home/febrafar.webp";
 
 const socialLinks = [
@@ -51,7 +51,7 @@ const Footer = () => {
                   <a
                     href={href}
                     aria-label={label}
-                    className="hover:text-brand flex h-10 w-10 items-center justify-center rounded-full border-2 border-white transition-colors hover:bg-white"
+                    className="flex h-10 w-10 items-center justify-center rounded-full border-2 border-white transition-colors hover:bg-white hover:text-orange-700"
                   >
                     <Icon />
                   </a>

@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
-import viewLogo from "@/assets/imgs/company/view-logo.png";
+import viewLogo from "@/assets/imgs/company/view-expanded-logo.png";
 import { useNavigate } from "react-router-dom";
 
 const SCROLL_THRESHOLD = 12;
@@ -47,24 +47,28 @@ const Header = () => {
   }, []);
 
   return (
-    <header className={`header ${scrolled ? "scrolled" : ""}`}>
+    <header className={`header pt-2 ${scrolled ? "scrolled" : ""}`}>
       <div className="mx-auto max-w-7xl px-4">
         <div className="inner flex items-center justify-between">
           <img
-            className="w-28 sm:w-36 md:w-40 lg:w-48"
+            className="w-24 sm:w-32 md:w-36 lg:w-44"
             src={viewLogo}
             alt="View logo"
             loading="eager"
           />
 
           <div className="flex items-center gap-3 sm:gap-4">
-            <Button variant="brand" size="lg" onClick={() => navigate("/home")}>
+            <Button
+              variant="brand"
+              size="lg"
+              onClick={() => navigate("/login")}
+            >
               Entrar
             </Button>
             <Button
               variant="outline-brand"
               size="lg"
-              onClick={() => navigate("/home")}
+              onClick={() => navigate("/login")}
             >
               Cadastre-se
             </Button>
