@@ -1,32 +1,20 @@
-import {
-  BookOpen,
-  Building,
-  Users,
-  Shield,
-  Heart,
-  Bell,
-  Settings,
-  Layers,
-} from "./Icons";
+import { Building, Users } from "./Icons";
 import viewLogo from "@/assets/imgs/company/white-view-logo.png";
 import { LavaBackground } from "./LavaBackground";
+import febrafarLogos from "../../assets/imgs/company/febrafar-logos.png";
 
 export const RightPanel = () => {
   return (
     <div className="bg-gradient-background relative flex min-h-screen flex-col justify-between overflow-hidden text-white">
       <LavaBackground />
 
-      <div className="relative z-10 mt-20 flex flex-col items-center justify-center gap-10 text-center lg:mt-24">
-        <div className="mb-8 text-center lg:mb-12">
-          <div className="relative inline-block">
+      <div className="relative z-10 mt-20 flex flex-col items-center justify-center gap-8 text-center lg:mt-18">
+        <div className="mb-8 text-center">
+          <div className="relative flex flex-col items-center">
             <div className="border-primary-foreground/30 absolute inset-0 top-1/2 left-1/2 h-72 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 md:h-80 md:w-80 lg:h-96 lg:w-96"></div>
-            <img
-              src={viewLogo}
-              className="absolute right-2/4 bottom-6/7 left-44 w-16"
-              alt=""
-            />
+            <img src={viewLogo} className="w-16" alt="" />
             <div className="relative z-10 max-w-sm px-4 py-8 md:max-w-md md:px-6 md:py-10 lg:max-w-lg lg:px-8 lg:py-12">
-              <h2 className="mb-4 text-lg leading-tight font-bold md:text-xl lg:mb-6 lg:text-2xl">
+              <h2 className="mb-4 text-lg leading-tight font-bold md:text-xl lg:mb-6 lg:text-xl">
                 Quer aproveitar ao máximo os <br className="hidden sm:block" />
                 <span className="text-gray-800">cursos, PBM, notícias</span> e
                 ter <br className="hidden sm:block" />
@@ -72,29 +60,7 @@ export const RightPanel = () => {
             </div>
           </div>
         </div>
-        <div className="relative z-10 flex justify-center space-x-6">
-          <div className="transition-smooth cursor-pointer rounded-lg p-3 hover:bg-white/30">
-            <BookOpen className="h-5 w-5 text-white" />
-          </div>
-          <div className="transition-smooth cursor-pointer rounded-lg p-3 hover:bg-white/30">
-            <Shield className="h-5 w-5 text-white" />
-          </div>
-          <div className="transition-smooth cursor-pointer rounded-lg p-3 hover:bg-white/30">
-            <Heart className="h-5 w-5 text-white" />
-          </div>
-          <div className="transition-smooth cursor-pointer rounded-lg p-3 hover:bg-white/30">
-            <Bell className="h-5 w-5 text-white" />
-          </div>
-          <div className="transition-smooth cursor-pointer rounded-lg p-3 hover:bg-white/30">
-            <Users className="h-5 w-5 text-white" />
-          </div>
-          <div className="transition-smooth cursor-pointer rounded-lg p-3 hover:bg-white/30">
-            <Settings className="h-5 w-5 text-white" />
-          </div>
-          <div className="transition-smooth cursor-pointer rounded-lg p-3 hover:bg-white/30">
-            <Layers className="h-5 w-5 text-white" />
-          </div>
-        </div>
+        <img src={febrafarLogos} className="mt-1.5 w-4/9" />
       </div>
     </div>
   );

@@ -5,48 +5,55 @@ import viewLogo from "@/assets/imgs/company/View-logo.png";
 
 const Login = () => {
   return (
-    <div className="min-h-screen lg:grid lg:grid-cols-9">
+    <div className="poppins min-h-screen lg:grid lg:grid-cols-9">
       <div className="lg:col-span-4">
-      <div className="flex flex-col mt-12 justify-center  sm:px-6 lg:px-0 xl:px-0 bg-white">
-        <div className="mx-auto w-full max-w-sm lg:w-96">
-          <div className="flex items-center mb-12">
-            <img 
-              src={viewLogo} 
-              alt="Febrafar" 
-              className="h-12 w-auto"
-            />
-          </div>
+        <div className="mt-12 flex flex-col justify-center bg-white px-6 lg:px-0 xl:px-0">
+          <div className="mx-auto w-full lg:w-4/6">
+            <div className="mb-12 flex items-center">
+              <img src={viewLogo} alt="Febrafar" className="h-12 w-auto" />
+            </div>
 
-          <div className="mb-8 mt-16">
-            <h1 className="text-md font-bold text-gray-900">
-              Faça seu login e acesse agora!
-            </h1>
-          </div>
+            <div className="mt-12 mb-12">
+              <h1 className="text-[17px] font-medium text-gray-900">
+                Faça seu login e acesse agora!
+              </h1>
+            </div>
 
-          <LoginForm />
+            <LoginForm />
 
+            <div className="mt-5 flex items-center justify-between gap-4 border-t-1 border-gray-200 pt-5">
+              <button
+                onClick={() =>
+                  (window.location.href =
+                    "https://orion.febrafar.com.br/medicamentos")
+                }
+                className="flex-1 rounded-lg border-2 border-gray-100 px-4 py-3 text-sm font-medium text-red-600 shadow-sm transition-all duration-200 hover:cursor-pointer hover:bg-gray-100"
+              >
+                Consultar View PBM
+              </button>
+              <button
+                onClick={() =>
+                  (window.location.href =
+                    "https://orion.febrafar.com.br/noticias")
+                }
+                className="flex-1 rounded-lg border-2 border-gray-100 px-4 py-3 text-sm font-medium text-red-600 shadow-sm transition-all duration-200 hover:cursor-pointer hover:bg-gray-100"
+              >
+                Notícias Febrafar
+              </button>
+            </div>
 
-          <div className="pt-6 mt-6 flex justify-between items-center gap-4 border-t-2 border-gray-200">
-            <button className="flex-1 shadow-md hover:bg-gray-100 text-red-600 border-2 border-gray-100 rounded-lg px-4 py-3 text-sm font-medium transition-all duration-200 ">
-              Consultar View PBM
-            </button>
-            <button className="flex-1 shadow-md hover:bg-gray-100 text-red-600 border-2 border-gray-100 rounded-lg px-4 py-3 text-sm font-medium transition-all duration-200 ">
-              Notícias Febrafar
-            </button>
-          </div>
-
-          <div className="mt-14 flex justify-center">
-            <div className="flex items-center space-x-2">
-              <div className="w-full flex justify-center">
-               <img src={febrafarLogo} alt="" className="w-1/3" />
-               </div>
+            <div className="mt-8 flex justify-center">
+              <div className="flex items-center space-x-2">
+                <div className="flex w-full justify-center">
+                  <img src={febrafarLogo} alt="" className="w-3/12" />
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-      </div>
 
-      <div className="hidden lg:block lg:col-span-5">
+      <div className="hidden lg:col-span-5 lg:block">
         <RightPanel />
       </div>
     </div>
