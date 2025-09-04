@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
-import viewLogo from "@/assets/imgs/company/view-expanded-logo.png";
+import viewLogo from "@/assets/imgs/company/View-logo.png";
 import { useNavigate } from "react-router-dom";
 
 const SCROLL_THRESHOLD = 12;

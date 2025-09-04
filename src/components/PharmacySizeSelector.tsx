@@ -77,8 +77,8 @@ const PharmacySizeSelector: React.FC<PharmacySizeSelectorProps> = ({
   };
 
   return (
-    <div className="w-full max-w-6xl pt-0">
-      <div className="flex h-[600px] gap-4">
+    <div className="w-full max-w-5xl pt-0">
+      <div className="flex h-[520px] gap-4">
         {pharmacySizes.map((size) => {
           const isHovered = hoveredId === size.id;
           const isSelected = selectedId === size.id;
@@ -88,7 +88,7 @@ const PharmacySizeSelector: React.FC<PharmacySizeSelectorProps> = ({
             <div
               key={size.id}
               className={combineClasses(
-                "relative cursor-pointer overflow-hidden rounded-2xl border-2 border-transparent",
+                "relative cursor-pointer overflow-hidden rounded-2xl border-2 border-red-300",
                 "transition-all duration-500 ease-out",
                 isHovered || isSelected
                   ? "border-pharmacy-green flex-[3] shadow-[0_8px_30px_-8px_hsl(var(--pharmacy-green)/0.2)]"

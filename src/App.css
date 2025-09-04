@@ -466,7 +466,7 @@
 
 /* ========== Responsivity ========== */
 @media (max-height: 768px) {
-  .home-gradient header {
+  .home-header {
     height: 100px;
   }
 }

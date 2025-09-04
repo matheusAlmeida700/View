@@ -1,7 +1,7 @@
 import { LoginForm } from "@/components/Login/LoginForm";
 import { RightPanel } from "@/components/Login/RightPanel";
 import febrafarLogo from "@/assets/imgs/company/febrafar-logo-official.png";
-import viewLogo from "@/assets/imgs/company/view-expanded-logo.png";
+import viewLogo from "@/assets/imgs/company/View-logo.png";
 
 const Login = () => {
   return (

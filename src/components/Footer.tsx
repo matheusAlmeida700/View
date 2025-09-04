@@ -6,7 +6,7 @@ import {
   MapPin,
   Phone,
 } from "lucide-react";
-import viewLogo from "@/assets/imgs/company/view-expanded-logo.png";
+import viewLogo from "@/assets/imgs/company/View-logo.png";
 import febrafarLogo from "@/assets/home/febrafar.webp";
 
 const socialLinks = [
