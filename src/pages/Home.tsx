@@ -1,12 +1,10 @@
-import { CircleArrowLeft } from "lucide-react";
+import viewLogo from "@/assets/imgs/company/View-logo.png";
+import decorativeBgL from "@/assets/home/decorative-balls-l.png";
+import decorativeBgR from "@/assets/home/decorative-balls-r.png";
 
-import viewLogo from "../assets/imgs/company/View-logo.png";
-import leftBall from "../assets/home/decorative-balls-l.png";
-import rightBall from "../assets/home/decorative-balls-r.png";
-
-import plantP from "../assets/imgs/plants/loja_p.png";
-import plantM from "../assets/imgs/plants/loja_m.png";
-import plantG from "../assets/imgs/plants/loja_g.png";
+import plantP from "@/assets/imgs/plants/loja_p.png";
+import plantM from "@/assets/imgs/plants/loja_m.png";
+import plantG from "@/assets/imgs/plants/loja_g.png";
 
 import { useEffect, useState } from "react";
 
@@ -41,7 +39,7 @@ function Home() {
           <header className="home-header poppins relative flex items-center justify-between pr-37 pl-27">
             <BackButton onClick={() => setStarted(false)} />
 
-            <h1 className="poppins text-gray mt-10 text-center text-5xl leading-12">
+            <h1 className="poppins text-gray mt-10 text-center text-4xl">
               Escolha o tamanho da <br /> sua futura loja
             </h1>
 
@@ -52,7 +50,7 @@ function Home() {
             </div>
           </header>
 
-          <main className="poppins text-gray justify-center flex w-full flex-1 flex-col items-center overflow-hidden">
+          <main className="poppins text-gray z-50 flex w-full flex-1 flex-col items-center justify-center overflow-hidden">
             <PharmacySizeSelector />
           </main>
         </>
@@ -93,30 +91,34 @@ function Home() {
               <img
                 src={plantP}
                 className="border-primary mt-25 w-4xl rounded-[50px] border-5"
-                alt=""
+                alt="Plant P Image"
               />
 
               <img
                 src={plantM}
                 className="border-primary absolute top-8 mt-25 w-4xl translate-x-[7px] rotate-[-5deg] rounded-[50px] border-5"
-                alt=""
+                alt="Plant M Image"
               />
 
               <img
                 src={plantG}
                 className="border-primary absolute top-15 mt-25 w-4xl translate-x-[20px] rotate-[-12deg] rounded-[50px] border-5"
-                alt=""
+                alt="Plant G Image"
               />
             </div>
           </main>
         </>
       )}
 
-      <img src={leftBall} className="absolute bottom-5 left-10 h-full" alt="" />
       <img
-        src={rightBall}
+        src={decorativeBgL}
+        className="absolute bottom-5 left-10 h-full"
+        alt="Decorative Background"
+      />
+      <img
+        src={decorativeBgR}
         className="absolute right-10 bottom-5 h-full"
-        alt=""
+        alt="Decorative Background"
       />
     </div>
   );

@@ -8,7 +8,7 @@ import blueprintIllustration from "@/assets/home/blueprint.png";
 
 const Index = () => {
   return (
-    <div className="poppins min-h-screen">
+    <div className="min-h-screen">
       <div className="section">
         <Header />
         <HeroSection />
@@ -16,7 +16,8 @@ const Index = () => {
 
       <div className="section reverse">
         <FeatureSection
-          description="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s..."
+          title="Gestão inteligente do seu espaço"
+          description="Visualize, organize e otimize o layout da farmácia com plantas 2D e 3D. Tenha controle total sobre categorias, universos e planogramas de forma simples e profissional."
           imageSrc={medicineIllustration}
           imageAlt="3D medicine illustration"
           imagePosition="left"
@@ -26,7 +27,8 @@ const Index = () => {
 
       <div className="section">
         <FeatureSection
-          description="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s..."
+          title="Painel central de farmácias"
+          description="Salve, acesse e personalize várias farmácias em um único painel. Todas as suas informações ficam organizadas em um workspace moderno e responsivo."
           imageSrc={pharmacyIllustration}
           imageAlt="3D pharmacy building illustration"
           imagePosition="right"
@@ -36,7 +38,8 @@ const Index = () => {
 
       <div className="section reverse">
         <FeatureSection
-          description="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s..."
+          title="Planejamento sem limites"
+          description="Defina dimensões, universos e categorias com exatidão. O sistema garante fluidez, responsividade e design empresarial de alto nível."
           imageSrc={blueprintIllustration}
           imageAlt="3D blueprint illustration"
           imagePosition="left"

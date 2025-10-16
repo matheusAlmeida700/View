@@ -1,23 +1,74 @@
 import { useState } from "react";
-import { Input } from "@/components/ui/input";
-import { User, Lock, Eye, EyeOff } from "./Icons";
 import { useNavigate } from "react-router-dom";
+import { User, Lock, Eye, EyeOff } from "lucide-react";
+import { userService } from "@/services/api";
+import { Input } from "../ui/input";
+import {
+  Dialog,
+  DialogTrigger,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+  DialogFooter,
+  DialogClose,
+} from "../ui/dialog";
 
 export const LoginForm = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [modalEmail, setModalEmail] = useState("");
+  const [modalLoading, setModalLoading] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle login logic here
-    navigate("/home");
-    console.log("Login attempted with:", { email, password });
+    if (!email || !password) {
+      alert("Preencha email e senha!");
+      return;
+    }
+
+    try {
+      setLoading(true);
+      const response = await userService.login(email, password);
+      localStorage.setItem("token", response.data.token);
+      localStorage.setItem("user", JSON.stringify(response.data.user));
+      navigate("/home");
+    } catch (error: any) {
+      console.error("Login failed:", error);
+      alert("Falha ao realizar login. Tente novamente.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleForgotPassword = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!modalEmail) {
+      alert("Informe seu e-mail!");
+      return;
+    }
+
+    try {
+      setModalLoading(true);
+      await userService.forgotPassword(modalEmail);
+      alert(
+        "Se este e-mail estiver cadastrado, você receberá um link para redefinir sua senha.",
+      );
+      setModalEmail("");
+    } catch (error: any) {
+      console.error("Erro ao solicitar redefinição:", error);
+      alert("Não foi possível enviar o e-mail. Tente novamente.");
+    } finally {
+      setModalLoading(false);
+    }
   };
 
   return (
     <form onSubmit={handleSubmit} className="poppins space-y-5">
+      {/* Campo Email */}
       <div className="space-y-1">
         <label
           htmlFor="email"
@@ -40,6 +91,7 @@ export const LoginForm = () => {
         </div>
       </div>
 
+      {/* Campo Senha */}
       <div className="space-y-1">
         <label
           htmlFor="password"
@@ -73,20 +125,61 @@ export const LoginForm = () => {
         </div>
       </div>
 
+      {/* Esqueci a senha */}
       <div className="text-right">
-        <a
-          href="#"
-          className="transition-smooth text-md font-normal text-red-600 hover:text-red-500"
-        >
-          Esqueceu a senha?
-        </a>
+        <Dialog>
+          <DialogTrigger asChild>
+            <button
+              type="button"
+              className="text-md transition-smooth font-normal text-red-600 hover:text-red-500"
+            >
+              Esqueceu a senha?
+            </button>
+          </DialogTrigger>
+          <DialogContent className="bg-white sm:max-w-md">
+            <DialogHeader>
+              <DialogTitle>Redefinir senha</DialogTitle>
+              <DialogDescription>
+                Insira seu e-mail para receber o link de redefinição.
+              </DialogDescription>
+            </DialogHeader>
+
+            <form onSubmit={handleForgotPassword} className="space-y-4">
+              <Input
+                type="email"
+                placeholder="Seu e-mail cadastrado"
+                value={modalEmail}
+                onChange={(e) => setModalEmail(e.target.value)}
+              />
+              <DialogFooter>
+                <DialogClose asChild>
+                  <button
+                    type="button"
+                    className="rounded-md border px-4 py-2 text-sm hover:bg-gray-100"
+                  >
+                    Cancelar
+                  </button>
+                </DialogClose>
+                <button
+                  type="submit"
+                  disabled={modalLoading}
+                  className="rounded-md bg-red-600 px-4 py-2 text-sm font-medium text-white hover:bg-red-700 disabled:opacity-50"
+                >
+                  {modalLoading ? "Enviando..." : "Enviar link"}
+                </button>
+              </DialogFooter>
+            </form>
+          </DialogContent>
+        </Dialog>
       </div>
 
+      {/* Botão Login */}
       <button
         type="submit"
-        className="shadow-primary hover:shadow-glow h-12 w-full rounded-lg bg-[#e82f07] font-semibold text-white transition-all hover:cursor-pointer hover:bg-[#ee0000]"
+        disabled={loading}
+        className="shadow-primary hover:shadow-glow h-12 w-full rounded-lg bg-[#e82f07] font-semibold text-white transition-all hover:cursor-pointer hover:bg-[#ee0000] disabled:cursor-not-allowed disabled:opacity-50"
       >
-        Entrar
+        {loading ? "Entrando..." : "Entrar"}
       </button>
     </form>
   );

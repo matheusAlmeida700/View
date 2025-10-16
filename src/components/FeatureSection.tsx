@@ -11,7 +11,7 @@ interface FeatureSectionProps {
 }
 
 const FeatureSection = ({
-  title = "Bring some aura to your Design",
+  title,
   description,
   imageSrc,
   imageAlt,
@@ -26,7 +26,7 @@ const FeatureSection = ({
             <img
               className="pointer-events-none absolute bottom-10 left-6 z-40 hidden max-w-[180px] md:block md:max-w-[220px]"
               src={decorativeBgL}
-              alt="Decorative"
+              alt="Decorative Background"
               loading="lazy"
             />
           )}
@@ -35,7 +35,7 @@ const FeatureSection = ({
             <img
               className="pointer-events-none absolute right-10 bottom-10 z-40 hidden max-w-[180px] md:block md:max-w-[220px]"
               src={decorativeBgR}
-              alt="Decorative"
+              alt="Decorative Background"
               loading="lazy"
             />
           )}
@@ -51,7 +51,7 @@ const FeatureSection = ({
             </div>
           )}
 
-          <div className="space-y-6">
+          <div className="z-50 space-y-6">
             <h2 className="text-dark text-3xl leading-tight font-bold md:text-5xl lg:text-6xl">
               {title}
             </h2>
